@@ -1,4 +1,4 @@
-use crate::layouts::PageHeader;
+use crate::layouts::*;
 use crate::pages::Home;
 use yew::prelude::*;
 use yew_hooks::prelude::*;
@@ -12,6 +12,9 @@ pub enum Route {
     #[at("/home")]
     Workflows,
 
+    #[at("/some/page-2")]
+    Page2,
+
     #[not_found]
     #[at("/404")]
     NotFound,
@@ -21,6 +24,21 @@ pub enum Route {
 fn not_found() -> Html {
     html! {
         <h1>{ "404" }</h1>
+    }
+}
+
+#[function_component(Page2)]
+fn page_2() -> Html {
+    html! {
+    <>
+        <PageHeader title="Page 2"  />
+        <Section title="Section">
+            <Link<Route> to={Route::Workflows{}}>
+                    {"Home"}
+            </Link<Route>>
+        </Section>
+
+    </>
     }
 }
 
@@ -97,6 +115,11 @@ fn root(props: &RootProps) -> Html {
                     <div class="scrollbox navbar-wrapper">
                         <div class="scrollbox-inner">
                         <ul>
+                            <li>
+                                <Link<Route> to={Route::Page2{}}>
+                                    {"Page 2"}
+                                </Link<Route>>
+                            </li>
                             {(1..=100).map(|i| html! {<li>{"Link #"}{i}</li>}).collect::<Html>()}
                         </ul>
                         </div>
@@ -121,6 +144,7 @@ pub fn switch(routes: Route) -> Html {
     let component = match &routes {
         Route::Home => html! { <Home /> },
         Route::Workflows => html! { <Home /> },
+        Route::Page2 => html! { <Page2 /> },
         Route::NotFound => html! { <NotFound /> },
     };
     html! {

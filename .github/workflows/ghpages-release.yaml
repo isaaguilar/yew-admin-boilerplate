@@ -3,6 +3,7 @@ name: Deploy Yew Admin Dashboard webapp
 on:
   push: 
     tags: ["*"]
+    branches: ["master"]
   workflow_dispatch:
 
 jobs:
