@@ -1,0 +1,23 @@
+[package]
+name = "yew-admin"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[dependencies]
+ansi-to-html = "0.2.1"
+gloo = "0.11.0"
+gloo-console = "0.3.0"
+gloo-net = "0.6.0"
+gloo-storage = "0.3.0"
+regex = "1.10.4"
+serde = { version = "1.0.198", features = ["derive"] }
+serde_json = "1.0.116"
+serde_yaml = "0.9.34-deprecated"
+thiserror = "2.0.12"
+wasm-bindgen-futures = "0.4.42"
+web-sys = "0.3.69"
+yew = { version = "0.21.0", features = ["csr"] }
+yew-hooks = "0.3.3"
+yew-router = "0.18.0"
+yewdux = "0.11.0"
