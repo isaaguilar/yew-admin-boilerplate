@@ -18,7 +18,7 @@ const API_ENDPOINT: &str = if cfg!(debug_assertions) {
 #[function_component(App)]
 fn app() -> Html {
     html! {
-        <BrowserRouter>
+        <BrowserRouter basename="/yew-admin-boilerplate">
             <Switch<Route> render={switch} /> // <- must be child of <BrowserRouter>
         </BrowserRouter>
     }
